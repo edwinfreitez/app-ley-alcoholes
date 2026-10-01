@@ -98,13 +98,16 @@ def mostrar_resultados(filtro_norma):
             estilo_clase = "card-ley" if item["norma"] == "LEY" else "card-reg"
             etiqueta = "LEY" if item["norma"] == "LEY" else "REGLAMENTO"
             
-            texto_resaltado = resaltar_texto(item["contenido"], query)
+            # Dar formato de párrafos / saltos de línea a los numerales (1.-, 2.-, etc.)
+            contenido_formateado = re.sub(r'(\s)(\d+\.-)', r'<br><br><b>\2</b>', item["contenido"])
+            
+            texto_resaltado = resaltar_texto(contenido_formateado, query)
             
             st.markdown(f"""
                 <div class="{estilo_clase}">
                     <small><b>[{etiqueta}]</b> - {item.get('titulo', '')}</small><br>
                     <h4 style="margin: 4px 0; color: #111;">{item['articulo']}</h4>
-                    <p style="font-size: 15px; color: #333; line-height: 1.5;">{texto_resaltado}</p>
+                    <div style="font-size: 15px; color: #333; line-height: 1.6;">{texto_resaltado}</div>
                 </div>
             """, unsafe_allow_html=True)
     else:
