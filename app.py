@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilo para tarjetas, resaltado y encabezado DUSA
+# Estilo para tarjetas, resaltado, encabezado y bordes personalizados
 st.markdown("""
     <style>
     .highlight {
@@ -36,7 +36,7 @@ st.markdown("""
         box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
     
-    /* Encabezado DUSA con espacio equilibrado e interlineado cómodo */
+    /* Encabezado DUSA */
     .header-container {
         display: flex;
         align-items: center;
@@ -71,6 +71,27 @@ st.markdown("""
         color: #2980b9;
         margin: 0;
         line-height: 1.2;
+    }
+
+    /* CAMBIO DE COLOR: Borde del cuadro de búsqueda en Azul */
+    div[data-baseweb="input"] {
+        border-color: #1F4E78 !important;
+    }
+    div[data-baseweb="input"]:focus-within {
+        border-color: #1F4E78 !important;
+        box-shadow: 0 0 0 1px #1F4E78 !important;
+    }
+
+    /* CAMBIO DE COLOR: Pestañas / Seleccionador (Tabs) en Azul en lugar de rojo */
+    button[data-baseweb="tab"] div[p] {
+        font-size: 15px;
+    }
+    /* Línea indicadora inferior y texto activo */
+    div[data-baseweb="tab-highlight"] {
+        background-color: #1F4E78 !important;
+    }
+    button[aria-selected="true"] {
+        color: #1F4E78 !important;
     }
     </style>
 """, unsafe_allow_html=True)
