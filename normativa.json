@@ -1,0 +1,50 @@
+[
+  {
+    "id": "LEY_ART_001",
+    "norma": "LEY",
+    "titulo": "TÍTULO I - Del Impuesto y su Exigibilidad",
+    "capitulo": "CAPÍTULO I - Disposiciones Generales",
+    "articulo": "Artículo 1",
+    "contenido": "El alcohol etílico y las especies alcohólicas de producción nacional o importadas destinadas al consumo en el país, quedan sujetas al impuesto que establece esta Ley."
+  },
+  {
+    "id": "LEY_ART_002",
+    "norma": "LEY",
+    "titulo": "TÍTULO I - Del Impuesto y su Exigibilidad",
+    "capitulo": "CAPÍTULO I - Disposiciones Generales",
+    "articulo": "Artículo 2",
+    "contenido": "A los fines de esta Ley se entiende por especies alcohólicas las que contienen alcohol etílico en solución superior a dos grados Gay-Lussac (2° G.L.)."
+  },
+  {
+    "id": "LEY_ART_012",
+    "norma": "LEY",
+    "titulo": "TÍTULO II - De las Alícuotas y Tarifas",
+    "capitulo": "CAPÍTULO I - De las Alícuotas",
+    "articulo": "Artículo 12",
+    "contenido": "Las especies alcohólicas de producción nacional o importadas pagarán un impuesto proporcional a su precio al público, aplicado sobre la alícuota correspondiente a cada tipo de bebida según su graduación alcohólica."
+  },
+  {
+    "id": "REG_ART_001",
+    "norma": "REGLAMENTO",
+    "titulo": "TÍTULO I - De los Establecimientos y Equipos",
+    "capitulo": "CAPÍTULO I - De la Inscripción y Registro",
+    "articulo": "Artículo 1",
+    "contenido": "Toda persona natural o jurídica que pretenda ejercer la industria o el comercio de alcohol y especies alcohólicas debe inscribirse previamente en el Registro de la Administración Tributaria."
+  },
+  {
+    "id": "REG_ART_015",
+    "norma": "REGLAMENTO",
+    "titulo": "TÍTULO II - Del Control de Producción",
+    "capitulo": "CAPÍTULO II - De los Aparatos de Destilación",
+    "articulo": "Artículo 15",
+    "contenido": "Los aparatos de destilación, rectificación y sus accesorios deberán contar con los sellos, precintos y contadores de volumen exigidos por la Administración Tributaria para garantizar la medición precisa del alcohol producido."
+  },
+  {
+    "id": "REG_ART_040",
+    "norma": "REGLAMENTO",
+    "titulo": "TÍTULO III - De la Circulación y Guías",
+    "capitulo": "CAPÍTULO I - De los Libros y Guías de Tránsito",
+    "articulo": "Artículo 40",
+    "contenido": "El traslado o transporte de alcohol y especies alcohólicas a nivel nacional requerirá obligatoriamente de la correspondiente Guía de Tránsito emitida por la autoridad competente."
+  }
+]
