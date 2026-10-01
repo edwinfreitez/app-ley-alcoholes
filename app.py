@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilo para tarjetas y resaltado (compatible con modo claro y oscuro)
+# Estilo para tarjetas, resaltado y encabezado corporativo
 st.markdown("""
     <style>
     .highlight {
@@ -35,6 +35,47 @@ st.markdown("""
         margin-bottom: 14px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
+    
+    /* Contenedor del encabezado al estilo DUSA */
+    .header-box {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .header-logo {
+        width: 75px;
+        height: auto;
+        background-color: #ffffff;
+        padding: 6px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-title {
+        font-size: 17px;
+        font-weight: bold;
+        color: #2c3e50;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0;
+    }
+    .header-subtitle {
+        font-size: 15px;
+        font-weight: bold;
+        color: #1a252f;
+        margin: 2px 0 0 0;
+    }
+    .header-author {
+        font-size: 13px;
+        color: #2980b9;
+        margin: 2px 0 0 0;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -50,8 +91,29 @@ except FileNotFoundError:
     st.error("No se encontró el archivo 'normativa.json' en el repositorio.")
     st.stop()
 
-st.title("📜 Buscador Legal de Alcoholes")
-st.caption("Consulta interactiva de la Ley y Reglamento de Impuesto sobre Alcohol y Especies Alcohólicas")
+# --- ENCABEZADO ESTILO DUSA ---
+# Logo DUSA oficial en SVG vectorizado
+logo_dusa_svg = """
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100" width="100%">
+  <circle cx="40" cy="50" r="28" fill="#a6192e"/>
+  <ellipse cx="40" cy="50" rx="20" ry="10" fill="none" stroke="#ffffff" stroke-width="3" transform="rotate(-30 40 50)"/>
+  <ellipse cx="40" cy="50" rx="20" ry="10" fill="none" stroke="#ffffff" stroke-width="3" transform="rotate(30 40 50)"/>
+  <text x="80" y="62" font-family="Arial, sans-serif" font-weight="900" font-size="34" fill="#a6192e" letter-spacing="1">DUSA</text>
+</svg>
+"""
+
+st.markdown(f"""
+    <div class="header-box">
+        <div class="header-logo">
+            {logo_dusa_svg}
+        </div>
+        <div>
+            <div class="header-title">BUSCADOR LEY DE ALCOHOLES</div>
+            <div class="header-subtitle">Destilerías Unidas, S.A.</div>
+            <div class="header-author">© Edwin Freitez</div>
+        </div>
+    </div>
+""", unsafe_allow_html=True)
 
 # Campo de Búsqueda Principal
 query = st.text_input("🔍 Buscar por palabra clave o número de artículo:", placeholder="Ej. alícuota, fianza, 12, destilación...")
