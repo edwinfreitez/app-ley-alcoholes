@@ -9,15 +9,9 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilo para tarjetas, resaltado y encabezado DUSA ajustado
+# Estilo para tarjetas, resaltado y encabezado DUSA
 st.markdown("""
     <style>
-    /* Reducir el espacio superior general de la página Streamlit */
-    .block-container {
-        padding-top: 1.5rem !important;
-        padding-bottom: 1rem !important;
-    }
-
     .highlight {
         background-color: #ffe066;
         color: #000000;
@@ -42,16 +36,15 @@ st.markdown("""
         box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
     
-    /* Estilos del encabezado con espacio compacto arriba y mayor interlineado interno */
+    /* Encabezado DUSA con espacio equilibrado e interlineado cómodo */
     .header-container {
         display: flex;
         align-items: center;
         gap: 15px;
         background-color: #f8f9fa;
-        padding: 10px 16px;
+        padding: 14px 18px;
         border-radius: 8px;
-        margin-top: 0px;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     .header-container img {
@@ -62,7 +55,7 @@ st.markdown("""
         font-size: 16px;
         font-weight: bold;
         color: #1a252f;
-        margin: 0 0 4px 0; /* Separación hacia el subtítulo */
+        margin: 0 0 3px 0;
         text-transform: uppercase;
         line-height: 1.2;
     }
@@ -70,7 +63,7 @@ st.markdown("""
         font-size: 14px;
         font-weight: bold;
         color: #2c3e50;
-        margin: 0 0 3px 0; /* Separación hacia el autor */
+        margin: 0 0 3px 0;
         line-height: 1.2;
     }
     .autor-text {
