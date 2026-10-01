@@ -2,37 +2,38 @@ import streamlit as st
 import json
 import re
 
-# Configuración de pantalla
+# Configuración de pantalla y título del acceso directo
 st.set_page_config(
-    page_title="Buscador Legal de Alcoholes",
+    page_title="Ley Alcoholes",
     page_icon="📜",
     layout="wide"
 )
 
-# Estilo para tarjetas y resaltado
+# Estilo para tarjetas y resaltado (compatible con modo claro y oscuro)
 st.markdown("""
     <style>
     .highlight {
         background-color: #ffe066;
+        color: #000000;
         font-weight: bold;
         padding: 0px 4px;
         border-radius: 3px;
     }
     .card-ley {
         border-left: 5px solid #1F4E78;
-        background-color: #f8f9fa;
-        padding: 14px;
-        border-radius: 6px;
-        margin-bottom: 12px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 14px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
     .card-reg {
         border-left: 5px solid #2E7D32;
-        background-color: #f8f9fa;
-        padding: 14px;
-        border-radius: 6px;
-        margin-bottom: 12px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 14px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
     </style>
 """, unsafe_allow_html=True)
@@ -95,20 +96,26 @@ def mostrar_resultados(filtro_norma):
         st.divider()
 
         for item, matches in resultados:
-            estilo_clase = "card-ley" if item["norma"] == "LEY" else "card-reg"
-            etiqueta = "LEY" if item["norma"] == "LEY" else "REGLAMENTO"
+            is_ley = (item["norma"] == "LEY")
+            estilo_clase = "card-ley" if is_ley else "card-reg"
+            etiqueta = "LEY" if is_ley else "REGLAMENTO"
+            color_etiqueta = "#1F4E78" if is_ley else "#2E7D32"
             
-            # Formato flexible para números (1., 1.-, 1)), letras (a), b)) y parágrafos
+            # Formato para números (1., 1.-, 1)), letras (a), b)) y parágrafos
             patron_subdivisiones = r'(\s)(\d+[\.\-\)]|[a-zA-Z]\)|Parágrafo\s+[A-ZÁÉÍÓÚa-zálíóú]+:)'
             contenido_formateado = re.sub(patron_subdivisiones, r'<br><br><b>\2</b>', item["contenido"])
             
             texto_resaltado = resaltar_texto(contenido_formateado, query)
             
+            # Encabezado con color visible tanto en móvil como en laptop
+            titulo_seccion = item.get('titulo', '')
+            encabezado_html = f'<div style="color: {color_etiqueta}; font-size: 13px; font-weight: bold; margin-bottom: 4px;">[{etiqueta}] - {titulo_seccion}</div>'
+            
             st.markdown(f"""
                 <div class="{estilo_clase}">
-                    <small><b>[{etiqueta}]</b> - {item.get('titulo', '')}</small><br>
-                    <h4 style="margin: 4px 0; color: #111;">{item['articulo']}</h4>
-                    <div style="font-size: 15px; color: #333; line-height: 1.6;">{texto_resaltado}</div>
+                    {encabezado_html}
+                    <h4 style="margin: 2px 0 8px 0; color: #111111;">{item['articulo']}</h4>
+                    <div style="font-size: 15px; color: #222222; line-height: 1.6;">{texto_resaltado}</div>
                 </div>
             """, unsafe_allow_html=True)
     else:
