@@ -98,8 +98,9 @@ def mostrar_resultados(filtro_norma):
             estilo_clase = "card-ley" if item["norma"] == "LEY" else "card-reg"
             etiqueta = "LEY" if item["norma"] == "LEY" else "REGLAMENTO"
             
-            # Dar formato de párrafos / saltos de línea a los numerales (1.-, 2.-, etc.)
-            contenido_formateado = re.sub(r'(\s)(\d+\.-)', r'<br><br><b>\2</b>', item["contenido"])
+            # Formato flexible para números (1., 1.-, 1)), letras (a), b)) y parágrafos
+            patron_subdivisiones = r'(\s)(\d+[\.\-\)]|[a-zA-Z]\)|Parágrafo\s+[A-ZÁÉÍÓÚa-zálíóú]+:)'
+            contenido_formateado = re.sub(patron_subdivisiones, r'<br><br><b>\2</b>', item["contenido"])
             
             texto_resaltado = resaltar_texto(contenido_formateado, query)
             
